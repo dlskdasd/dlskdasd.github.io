@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+h1 {
+color: white;
+text-align:left;
+}
+
+p {
+font-family: verdana;
+font-size: 20px;
+color: black;
+}
+</style>
+
+</head>
+<body>
+<h1>My Homework</h1>
+
+<p id="demo1">Set font color .</p>
+
+<button onclick="changeColor('red')">Red</button>
+<button onclick="changeColor('green')">Green</button>
+<button onclick="changeColor('blue')">Blue</button>
+
+<p id="demo2">Set font increase.</p>
+<button onclick="increaseFontSize()">Increase Font Size</button>
+
+
+<p id="demo3">Set the background color of the page.</p>
+<button onclick="changeBackground('red')">Change Background</button>
+<button onclick="changeBackground('lightblue')">Change Background</button>
+
+<p id="demo4">Show time.</p> 
+<p id="demo5"></p> 
+
+<script>
+
+//https://www.w3schools.com/js/tryit.asp?filename=tryjs_default
+//new add  changeColor(color),increaseFontSize(),changeBackground(color)
+//changeColor(color) : Set font(demo1/demo2/demo3) color 
+function changeColor(color) {
+  let x = document.getElementById("demo1");
+  let y = document.getElementById("demo2");
+  let z = document.getElementById("demo3");
+  x.style.color = color; 
+  y.style.color = color; 
+  z.style.color = color; 
+}
+
+//changeColor(color) : Set font(demo1) increase
+function increaseFontSize() {
+  let x = document.getElementById("demo1");
+  let currentSize = parseInt(x.style.fontSize);
+  if (!currentSize) {
+    currentSize = 20;
+  }
+  x.style.fontSize = (currentSize + 5) + "px";
+}
+
+//Set the background color of the page
+function changeBackground(color) {
+  document.body.style.backgroundColor = color;
+}
+
+//https://www.w3schools.com/jsref/jsref_getdate.asp
+//add showTime()
+//function showTime() : show local current time
+function showTime() {
+  let now = new Date();
+  let datetime = now.toLocaleString();
+  document.getElementById("demo4").innerHTML = "CurrentTime" + datetime;
+}
+
+
+//https://www.w3schools.com/jsref/met_win_setinterval.asp
+//update time per 1s
+setInterval(showTime, 1000);
+
+</script>
+</body>
+</html>
